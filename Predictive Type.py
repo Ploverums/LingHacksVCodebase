@@ -67,3 +67,9 @@ def predict_completion(text, n=3):
     next_indices = sample(preds, n)
     return [su_words[idx] for idx in next_indices]
 
+while True:
+  q =  str(input("Enter a sentence and see what the next word is predicted to be: "))
+  print("correct sentence: ",q)
+  seq = " ".join(tokenizer.tokenize(q.lower())[0:5])
+  print("Sequence: ",seq)
+  print("next possible words: ", predict_completion(seq, 5))
